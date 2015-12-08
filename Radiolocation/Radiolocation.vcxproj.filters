@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\WaveformsH">
+      <UniqueIdentifier>{a1d086b1-fdfd-41bb-9a12-edbb96d55a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WaveformsImp">
+      <UniqueIdentifier>{5ff80676-773f-4e97-82e8-268cfb67685a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WaveformInterface.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="RadLibDefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PureSine.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="PureCosine.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="CWSine.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="CWCosine.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearChirp.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpChirp.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareWave.h">
+      <Filter>Header Files\WaveformsH</Filter>
+    </ClInclude>
+    <ClInclude Include="LibExceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareWaveModulated.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SawtoothWave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SawtoothModulated.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalTrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Polarization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WhiteGaussianNoise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PureCosineAWGNoise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseSine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseModSine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseModCos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseLinChirp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseExpChirp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseSawtooth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseModSawtooth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseSquareWave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianNoiseModSquareWave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RangeMeasurement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PulseAveragePower.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnergyOfPulse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RadarRangeResolution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PureCosineDopplerShift.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceAreaClutterReturn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PureCosMultiTargetReturn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WaveformInterface.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="PureSine.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="PureCosine.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="CWSine.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="CWCosine.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearChirp.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpChirp.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareWave.cpp">
+      <Filter>Source Files\WaveformsImp</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareWaveModulated.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SawtoothWave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SawtoothModulated.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalTrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Polarization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WhiteGaussianNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PureCosineAWGNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseSine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseModSine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseModCos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseLinChirp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseExpChirp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseSawtooth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseModSawtooth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseSquareWave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussianNoiseModSquareWave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RangeMeasurement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PulseAveragePower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnergyOfPulse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RadarRangeResolution.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PureCosineDopplerShift.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceAreaClutterReturn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PureCosMultiTargetReturn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PureSine.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="PureCosine.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="CWSine.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="CWCosine.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="LinearChirp.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="ExpChirp.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="SquareWave.inl">
+      <Filter>Header Files\WaveformsH</Filter>
+    </None>
+    <None Include="SquareWaveModulated.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="SawtoothWave.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="SawtoothModulated.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="SignalTrain.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Polarization.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="WhiteGaussianNoise.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="PureCosineAWGNoise.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseSine.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseModSine.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseModCos.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseLinChirp.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseExpChirp.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseSawtooth.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseModSawtooth.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseSquareWave.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="GaussianNoiseModSquareWave.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="RangeMeasurement.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="PulseAveragePower.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="EnergyOfPulse.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="RadarRangeResolution.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="PureCosineDopplerShift.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="SurfaceAreaClutterReturn.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="PureCosMultiTargetReturn.inl">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

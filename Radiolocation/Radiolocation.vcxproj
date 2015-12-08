@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F42E94C7-F38E-4BEC-98E2-E5110788ABBD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Radiolocation</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Intel C++ Compiler XE 14.0</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Intel C++ Compiler XE 14.0</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <Cpp0xSupport>true</Cpp0xSupport>
+      <AssemblerOutput>All</AssemblerOutput>
+      <OpenMP>GenerateParallelCode</OpenMP>
+      <EnableExpandedLineNumberInfo>true</EnableExpandedLineNumberInfo>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExpressionEvaluation>Double</FloatingPointExpressionEvaluation>
+      <GenerateAlternateCodePaths>AVX2</GenerateAlternateCodePaths>
+      <UseProcessorExtensions>AVX2</UseProcessorExtensions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RecognizeRestrictKeyword>true</RecognizeRestrictKeyword>
+      <AdditionalIncludeDirectories>C:\boost\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CWCosine.h" />
+    <ClInclude Include="CWSine.h" />
+    <ClInclude Include="EnergyOfPulse.h" />
+    <ClInclude Include="ExpChirp.h" />
+    <ClInclude Include="GaussianNoiseExpChirp.h" />
+    <ClInclude Include="GaussianNoiseLinChirp.h" />
+    <ClInclude Include="GaussianNoiseModCos.h" />
+    <ClInclude Include="GaussianNoiseModSawtooth.h" />
+    <ClInclude Include="GaussianNoiseModSine.h" />
+    <ClInclude Include="GaussianNoiseModSquareWave.h" />
+    <ClInclude Include="GaussianNoiseSawtooth.h" />
+    <ClInclude Include="GaussianNoiseSine.h" />
+    <ClInclude Include="GaussianNoiseSquareWave.h" />
+    <ClInclude Include="LibExceptions.h" />
+    <ClInclude Include="LinearChirp.h" />
+    <ClInclude Include="Polarization.h" />
+    <ClInclude Include="PulseAveragePower.h" />
+    <ClInclude Include="PureCosine.h" />
+    <ClInclude Include="PureCosineAWGNoise.h" />
+    <ClInclude Include="PureCosineDopplerShift.h" />
+    <ClInclude Include="PureCosMultiTargetReturn.h" />
+    <ClInclude Include="PureSine.h" />
+    <ClInclude Include="RadarRangeResolution.h" />
+    <ClInclude Include="RadLibDefs.h" />
+    <ClInclude Include="RangeMeasurement.h" />
+    <ClInclude Include="SawtoothModulated.h" />
+    <ClInclude Include="SawtoothWave.h" />
+    <ClInclude Include="SignalTrain.h" />
+    <ClInclude Include="SquareWave.h" />
+    <ClInclude Include="SquareWaveModulated.h" />
+    <ClInclude Include="SurfaceAreaClutterReturn.h" />
+    <ClInclude Include="WaveformInterface.h" />
+    <ClInclude Include="WhiteGaussianNoise.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CWCosine.cpp" />
+    <ClCompile Include="CWSine.cpp" />
+    <ClCompile Include="EnergyOfPulse.cpp" />
+    <ClCompile Include="ExpChirp.cpp" />
+    <ClCompile Include="GaussianNoiseExpChirp.cpp" />
+    <ClCompile Include="GaussianNoiseLinChirp.cpp" />
+    <ClCompile Include="GaussianNoiseModCos.cpp" />
+    <ClCompile Include="GaussianNoiseModSawtooth.cpp" />
+    <ClCompile Include="GaussianNoiseModSine.cpp" />
+    <ClCompile Include="GaussianNoiseModSquareWave.cpp" />
+    <ClCompile Include="GaussianNoiseSawtooth.cpp" />
+    <ClCompile Include="GaussianNoiseSine.cpp" />
+    <ClCompile Include="GaussianNoiseSquareWave.cpp" />
+    <ClCompile Include="LinearChirp.cpp" />
+    <ClCompile Include="Polarization.cpp" />
+    <ClCompile Include="PulseAveragePower.cpp" />
+    <ClCompile Include="PureCosine.cpp" />
+    <ClCompile Include="PureCosineAWGNoise.cpp" />
+    <ClCompile Include="PureCosineDopplerShift.cpp" />
+    <ClCompile Include="PureCosMultiTargetReturn.cpp" />
+    <ClCompile Include="PureSine.cpp" />
+    <ClCompile Include="RadarRangeResolution.cpp" />
+    <ClCompile Include="RangeMeasurement.cpp" />
+    <ClCompile Include="SawtoothModulated.cpp" />
+    <ClCompile Include="SawtoothWave.cpp" />
+    <ClCompile Include="SignalTrain.cpp" />
+    <ClCompile Include="SquareWave.cpp" />
+    <ClCompile Include="SquareWaveModulated.cpp" />
+    <ClCompile Include="SurfaceAreaClutterReturn.cpp" />
+    <ClCompile Include="WaveformInterface.cpp" />
+    <ClCompile Include="WhiteGaussianNoise.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CWCosine.inl" />
+    <None Include="CWSine.inl" />
+    <None Include="EnergyOfPulse.inl" />
+    <None Include="ExpChirp.inl" />
+    <None Include="GaussianNoiseExpChirp.inl" />
+    <None Include="GaussianNoiseLinChirp.inl" />
+    <None Include="GaussianNoiseModCos.inl" />
+    <None Include="GaussianNoiseModSawtooth.inl" />
+    <None Include="GaussianNoiseModSine.inl" />
+    <None Include="GaussianNoiseModSquareWave.inl" />
+    <None Include="GaussianNoiseSawtooth.inl" />
+    <None Include="GaussianNoiseSine.inl" />
+    <None Include="GaussianNoiseSquareWave.inl" />
+    <None Include="LinearChirp.inl" />
+    <None Include="Polarization.inl" />
+    <None Include="PulseAveragePower.inl" />
+    <None Include="PureCosine.inl" />
+    <None Include="PureCosineAWGNoise.inl" />
+    <None Include="PureCosineDopplerShift.inl" />
+    <None Include="PureCosMultiTargetReturn.inl" />
+    <None Include="PureSine.inl" />
+    <None Include="RadarRangeResolution.inl" />
+    <None Include="RangeMeasurement.inl" />
+    <None Include="SawtoothModulated.inl" />
+    <None Include="SawtoothWave.inl" />
+    <None Include="SignalTrain.inl" />
+    <None Include="SquareWave.inl" />
+    <None Include="SquareWaveModulated.inl" />
+    <None Include="SurfaceAreaClutterReturn.inl" />
+    <None Include="WhiteGaussianNoise.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
