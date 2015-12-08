@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Files\MathConstants">
+      <UniqueIdentifier>{488c6fa0-f56f-4a91-b92d-c7bb787850c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\FastFunctions">
+      <UniqueIdentifier>{e7479235-aa12-410d-a303-c6ddb34acef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\PhysConstants">
+      <UniqueIdentifier>{b40e3074-f8af-49fa-bccc-4db2f8ce4f66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Vectors">
+      <UniqueIdentifier>{d63ad25d-2f93-4eda-b89f-d476d113c5ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\RealAnalysis">
+      <UniqueIdentifier>{04056512-eeba-4e71-8161-49c9587cec17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\SpecialFunctions">
+      <UniqueIdentifier>{014d81e6-ba5e-4043-8d44-f7333b094aae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="integral.h">
+      <Filter>Files\MathConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="MathConstants.h">
+      <Filter>Files\MathConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="MathLibDefinitions.h">
+      <Filter>Files</Filter>
+    </ClInclude>
+    <ClInclude Include="functions_scalar.h">
+      <Filter>Files\FastFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicalUnits.h">
+      <Filter>Files\PhysConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="FundamentalPhysUnits.h">
+      <Filter>Files\PhysConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="ComposedUnits.h">
+      <Filter>Files\PhysConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="SI.h">
+      <Filter>Files\PhysConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysCoefficients.h">
+      <Filter>Files\PhysConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorF64AVX.h">
+      <Filter>Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalF64AVX.h">
+      <Filter>Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Tangent.h">
+      <Filter>Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Normal.h">
+      <Filter>Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Tangential.h">
+      <Filter>Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Derivative.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="DerivativeAVX.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapezoidQuadrature.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="BoolCompositeQuadrature.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadratureSixPoints.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadratureSevenPoints.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadratureEightPoints.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussianQuadrature.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Integrand.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiThreadedTrapezoid.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MutliThreadedSimpsonRule.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiThreadedBoolRule.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiThreaded6PQuadrature.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiThreaded7PQuadrature.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiThreaded8PQuadrature.h">
+      <Filter>Files\RealAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="BetaFunctions.h">
+      <Filter>Files\SpecialFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="SinusCFunctions.h">
+      <Filter>Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorFunctions.h">
+      <Filter>Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="integral.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="functions_scalar.inl">
+      <Filter>Files\FastFunctions</Filter>
+    </None>
+    <None Include="PhysicalUnits.inl">
+      <Filter>Files\PhysConstants</Filter>
+    </None>
+    <None Include="PhysCoefficients.inl">
+      <Filter>Files\PhysConstants</Filter>
+    </None>
+    <None Include="VectorF64AVX.inl">
+      <Filter>Files\Vectors</Filter>
+    </None>
+    <None Include="NormalF64AVX.inl">
+      <Filter>Files\Vectors</Filter>
+    </None>
+    <None Include="Tangent.inl">
+      <Filter>Files\Vectors</Filter>
+    </None>
+    <None Include="Vector.inl">
+      <Filter>Files\Vectors</Filter>
+    </None>
+    <None Include="Normal.inl">
+      <Filter>Files\Vectors</Filter>
+    </None>
+    <None Include="Tangential.inl">
+      <Filter>Files\Vectors</Filter>
+    </None>
+    <None Include="MathUtils.inl">
+      <Filter>Files</Filter>
+    </None>
+    <None Include="Derivative.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="DerivativeAVX.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="TrapezoidQuadrature.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="BoolCompositeQuadrature.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="QuadratureSixPoints.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="QuadratureSevenPoints.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="QuadratureEightPoints.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="GaussianQuadrature.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="MultiThreadedTrapezoid.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="MultiThreadedSimpsonRule.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="MultiThreadedBoolRule.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="MultiThreaded6PQuadrature.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="MultiThreaded7PQuadrature.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="Integrand.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="MultiThreaded8PQuadrature.inl">
+      <Filter>Files\RealAnalysis</Filter>
+    </None>
+    <None Include="BetaFunctions.inl">
+      <Filter>Files\SpecialFunctions</Filter>
+    </None>
+    <None Include="SinusCFunctions.inl">
+      <Filter>Files</Filter>
+    </None>
+    <None Include="ErrorFunctions.inl">
+      <Filter>Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

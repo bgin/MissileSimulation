@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{10CD54D9-209B-47A5-838C-7A098FD4B688}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>MathLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Intel C++ Compiler XE 14.0</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Intel C++ Compiler XE 14.0</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableExpandedLineNumberInfo>true</EnableExpandedLineNumberInfo>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LoopUnrolling>4</LoopUnrolling>
+      <Parallelization>true</Parallelization>
+      <UseIntelOptimizedHeaders>true</UseIntelOptimizedHeaders>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Strict</FloatingPointModel>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <GenerateAlternateCodePaths>AVX2</GenerateAlternateCodePaths>
+      <UseProcessorExtensions>AVX2</UseProcessorExtensions>
+      <LevelOfStaticAnalysis>None</LevelOfStaticAnalysis>
+      <ModeOfStaticAnalysis>None</ModeOfStaticAnalysis>
+      <FloatingPointExpressionEvaluation>Double</FloatingPointExpressionEvaluation>
+      <Cpp0xSupport>true</Cpp0xSupport>
+      <AssemblerOutput>All</AssemblerOutput>
+      <ShowIncludes>true</ShowIncludes>
+      <AdditionalIncludeDirectories>C:\boost\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RecognizeRestrictKeyword>true</RecognizeRestrictKeyword>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BetaFunctions.h" />
+    <ClInclude Include="BoolCompositeQuadrature.h" />
+    <ClInclude Include="ComposedUnits.h" />
+    <ClInclude Include="Derivative.h" />
+    <ClInclude Include="DerivativeAVX.h" />
+    <ClInclude Include="ErrorFunctions.h" />
+    <ClInclude Include="functions_scalar.h" />
+    <ClInclude Include="FundamentalPhysUnits.h" />
+    <ClInclude Include="GaussianQuadrature.h" />
+    <ClInclude Include="integral.h" />
+    <ClInclude Include="Integrand.h" />
+    <ClInclude Include="MathConstants.h" />
+    <ClInclude Include="MathLibDefinitions.h" />
+    <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="MultiThreaded6PQuadrature.h" />
+    <ClInclude Include="MultiThreaded7PQuadrature.h" />
+    <ClInclude Include="MultiThreaded8PQuadrature.h" />
+    <ClInclude Include="MultiThreadedBoolRule.h" />
+    <ClInclude Include="MultiThreadedTrapezoid.h" />
+    <ClInclude Include="MutliThreadedSimpsonRule.h" />
+    <ClInclude Include="Normal.h" />
+    <ClInclude Include="NormalF64AVX.h" />
+    <ClInclude Include="PhysCoefficients.h" />
+    <ClInclude Include="PhysicalUnits.h" />
+    <ClInclude Include="QuadratureEightPoints.h" />
+    <ClInclude Include="QuadratureSevenPoints.h" />
+    <ClInclude Include="QuadratureSixPoints.h" />
+    <ClInclude Include="SI.h" />
+    <ClInclude Include="SinusCFunctions.h" />
+    <ClInclude Include="Tangent.h" />
+    <ClInclude Include="Tangential.h" />
+    <ClInclude Include="TrapezoidQuadrature.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="VectorF64AVX.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="integral.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BetaFunctions.inl" />
+    <None Include="BoolCompositeQuadrature.inl" />
+    <None Include="Derivative.inl" />
+    <None Include="DerivativeAVX.inl" />
+    <None Include="ErrorFunctions.inl" />
+    <None Include="functions_scalar.inl" />
+    <None Include="GaussianQuadrature.inl" />
+    <None Include="Integrand.inl" />
+    <None Include="MathUtils.inl" />
+    <None Include="MultiThreaded6PQuadrature.inl" />
+    <None Include="MultiThreaded7PQuadrature.inl" />
+    <None Include="MultiThreaded8PQuadrature.inl" />
+    <None Include="MultiThreadedBoolRule.inl" />
+    <None Include="MultiThreadedSimpsonRule.inl" />
+    <None Include="MultiThreadedTrapezoid.inl" />
+    <None Include="Normal.inl" />
+    <None Include="NormalF64AVX.inl" />
+    <None Include="PhysCoefficients.inl" />
+    <None Include="PhysicalUnits.inl" />
+    <None Include="QuadratureEightPoints.inl" />
+    <None Include="QuadratureSevenPoints.inl" />
+    <None Include="QuadratureSixPoints.inl" />
+    <None Include="SinusCFunctions.inl" />
+    <None Include="Tangent.inl" />
+    <None Include="Tangential.inl" />
+    <None Include="TrapezoidQuadrature.inl" />
+    <None Include="Vector.inl" />
+    <None Include="VectorF64AVX.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
