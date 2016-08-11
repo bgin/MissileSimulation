@@ -36,7 +36,7 @@ internal_system::FastSSEMemCpy<T, N>::sse_mem_cpy2x(_In_ const T* __restrict src
 
 	// Trivial copy routine.
 	/* Unrolled 2x */
-	for (int i{ 0 }; i != Len; i += 2) {
+	for (int i{ 0 }; i != Len - 2; i += 2) {
 
 		dst[i] = src[i];
 		dst[i + 1] = src[i + 1];
@@ -55,7 +55,7 @@ internal_system::FastSSEMemCpy<T, N>::sse_mem_cpy4x(_In_ const T* __restrict sou
 #endif
 
 	/* Simple copy routine unrolled 4x*/
-	for (int i{ 0 }; i != Length; i += 4) {
+	for (int i{ 0 }; i != Length - 4; i += 4) {
 
 		dest[i] = source[i];
 		dest[i + 1] = source[i + 1];
@@ -74,7 +74,7 @@ internal_system::FastSSEMemCpy<T, N>::sse_mem_cpy8x(_In_ const T* __restrict sou
 #endif
 
 	/* Simple copy routine unrolled 8x */
-	for (int i{ 0 }; i != Length; i += 8) {
+	for (int i{ 0 }; i != Length - 8; i += 8) {
 
 		dest[i] = source[i];
 		dest[i + 1] = source[i + 1];
@@ -122,7 +122,7 @@ auto   internal_system::FastSSEMemCpy<float, 0>::sse_mem_cpy_f32(_In_ const floa
 
 	if (Length <= static_cast<int>(g_utils::L1D_SP_ELEMS)) {
 		//Prefetch to L1D only.
-		for (int i{ 0 }; i != Length; i += 8) {
+		for (int i{ 0 }; i != Length - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -135,7 +135,7 @@ auto   internal_system::FastSSEMemCpy<float, 0>::sse_mem_cpy_f32(_In_ const floa
 	}
 	else {
 		// Prefetch to L2 only.
-		for (int i{ 0 }; i != Length; i += 8) {
+		for (int i{ 0 }; i != Length - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -161,7 +161,7 @@ auto   internal_system::FastSSEMemCpy<float, 0>::sse_mem_cpy_f324x(_In_ const fl
 	
 	if (Length <= static_cast<int>(g_utils::L1D_SP_ELEMS)) {
 		// Prefetch to L1D only.
-		for (int i{ 0 }; i != Length; i += 16) {
+		for (int i{ 0 }; i != Length - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -175,7 +175,7 @@ auto   internal_system::FastSSEMemCpy<float, 0>::sse_mem_cpy_f324x(_In_ const fl
 	}
 	else {
 		// Prefetch to L2 ony.
-		for (int i{ 0 }; i != Length; i += 16) {
+		for (int i{ 0 }; i != Length - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -201,7 +201,7 @@ auto   internal_system::FastSSEMemCpy<float, 0>::sse_mem_cpy_f328x(_In_ const fl
 #endif
 	if (Length <= static_cast<int>(g_utils::L1D_SP_ELEMS)) {
 		// Prefetch to L1D.
-		for (int i{ 0 }; i != Length; i += 32) {
+		for (int i{ 0 }; i != Lengt - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -220,7 +220,7 @@ auto   internal_system::FastSSEMemCpy<float, 0>::sse_mem_cpy_f328x(_In_ const fl
 	else {
 		// Prefetch to L2.
 		
-		for (int i{ 0 }; i != Length; i += 32) {
+		for (int i{ 0 }; i != Length - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -252,7 +252,7 @@ auto   internal_system::FastSSEMemCpy<double, 0>::sse_mem_cpy_f64(_In_ const dou
 	
 	if (Length <= static_cast<int>(g_utils::L1D_DP_ELEMS)) {
 		// Prefetch to L1D only.
-		for (int i{ 0 }; i != Length; i += 4) {
+		for (int i{ 0 }; i != Length - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -265,7 +265,7 @@ auto   internal_system::FastSSEMemCpy<double, 0>::sse_mem_cpy_f64(_In_ const dou
 	}
 	else {
 		// Prefetch to L2 only.
-		for (int i{ 0 }; i != Length; i += 4) {
+		for (int i{ 0 }; i != Length - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -290,7 +290,7 @@ auto   internal_system::FastSSEMemCpy<double, 0>::sse_mem_cpy_f644x(_In_ const d
 	
 	if (Length <= static_cast<int>(g_utils::L1D_DP_ELEMS)) {
 		// Prefetch to L1D.
-		for (int i{ 0 }; i != Length; i += 8) {
+		for (int i{ 0 }; i != Length - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -305,7 +305,7 @@ auto   internal_system::FastSSEMemCpy<double, 0>::sse_mem_cpy_f644x(_In_ const d
 	}
 	else {
 		// Prefetch to L2 only.
-		for (int i{ 0 }; i != Length; i += 8) {
+		for (int i{ 0 }; i != Length - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -333,7 +333,7 @@ auto   internal_system::FastSSEMemCpy<double, 0>::sse_mem_cpy_f648x(_In_ const d
 	
 	if (Length <= static_cast<int>(g_utils::L1D_DP_ELEMS)) {
 		// Prefetch to L1D only
-		for (int i{ 0 }; i != Length; i += 16) {
+		for (int i{ 0 }; i != Length - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -351,7 +351,7 @@ auto   internal_system::FastSSEMemCpy<double, 0>::sse_mem_cpy_f648x(_In_ const d
 	}
 	else {
 		// Prefetch to L2 only.
-		for (int i{ 0 }; i != Length; i += 16) {
+		for (int i{ 0 }; i != Length - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -381,7 +381,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<float>, 0>::sse_mem_cpy_val
 #else
 	g_utils::check_args(src,dest,std::string("Invalid argument(s) in sse_mem_cpy_valf32"));
 #endif
-	for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+	for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 		/*  Bear in mind that ICC probably will not vectorise 
 		 *  further this loop mainly because of flow dependence
 		 *   [i], [i + 4] on the next iteration.
@@ -404,7 +404,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<float>, 0>::sse_mem_cpy_val
 	g_utils::check_args(src, dest, std::string("Invalid argument(s) in sse_mem_cpy_valf324x"));
 #endif
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -417,7 +417,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<float>, 0>::sse_mem_cpy_val
 		}
 	}
 	else {
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + 4] on the next iteration.
@@ -445,7 +445,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<float>, 0>::sse_mem_cpy_val
 #endif
 	
 	if (src.size() <= g_utils::L1D_SP_ELEMS){
-		for (std::size_t i{ 0 }; i != src.size(); i += 32) {
+		for (std::size_t i{ 0 }; i != src.size() - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -465,7 +465,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<float>, 0>::sse_mem_cpy_val
 	else{
 		omp_set_num_threads(4);
 #pragma omp parallel for if(src.size() > (1 << 24)) 
-		for (std::size_t i{ 0 }; i != src.size(); i += 32) {
+		for (std::size_t i{ 0 }; i != src.size() - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -498,7 +498,7 @@ auto   internal_system::FastSSEMemCpy<std::valarray<double>, 0>::sse_mem_cpy_val
 #endif
 	// Prefetch to L1D
 	if (src.size() <= g_utils::L1D_SP_ELEMS){
-		for (std::size_t i{ 0 }; i != src.size(); i += 4) {
+		for (std::size_t i{ 0 }; i != src.size() - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -511,7 +511,7 @@ auto   internal_system::FastSSEMemCpy<std::valarray<double>, 0>::sse_mem_cpy_val
 	}
 	else{
 		// Prefetch to L2D
-		for (std::size_t i{ 0 }; i != src.size(); i += 4) {
+		for (std::size_t i{ 0 }; i != src.size() - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -538,7 +538,7 @@ auto   internal_system::FastSSEMemCpy<std::valarray<double>, 0>::sse_mem_cpy_val
 #endif
 	// Prefetch tp L1D.
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -557,7 +557,7 @@ auto   internal_system::FastSSEMemCpy<std::valarray<double>, 0>::sse_mem_cpy_val
 		// Attempt to use OpenMP for large data set i.e large that 1 << 24 elements.
 		omp_set_num_threads(4);
 #pragma omp parallel for if(src.size() >= (1 << 24)) 
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -585,7 +585,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<double>, 0>::sse_mem_cpy_va
 #endif
 	
 	if (src.size() <= g_utils::L1D_SP_ELEMS){
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -607,7 +607,7 @@ auto    internal_system::FastSSEMemCpy<std::valarray<double>, 0>::sse_mem_cpy_va
 		// Uses OpenMP for data set larger than 1 << 24.
 		omp_set_num_threads(4);
 #pragma omp parallel for if(src.size() >= (1 << 24))
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -641,7 +641,7 @@ template<const int N>  void internal_system::FastSSEMemCpy<std::array<float, N>,
 #endif
 	// Prefetch L1D 
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -654,7 +654,7 @@ template<const int N>  void internal_system::FastSSEMemCpy<std::array<float, N>,
 	}
 	else {
 		// Prefetch to L2D
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -682,7 +682,7 @@ template<const int N> void internal_system::FastSSEMemCpy<std::array<float, N>, 
 #endif
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -700,7 +700,7 @@ template<const int N> void internal_system::FastSSEMemCpy<std::array<float, N>, 
 		// Use OpenMP for data set larger than 1 << 24 elements.
 		omp_set_num_threads(4);
 #pragma omp parallel for if(src.size() >= (1 << 24))
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -730,7 +730,7 @@ template<const int N>  void  internal_system::FastSSEMemCpy<std::array<float, N>
 #endif
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
 		// Prefetch L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 32){
+		for (std::size_t i{ 0 }; i != src.size() - 32; i += 32){
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -752,7 +752,7 @@ template<const int N>  void  internal_system::FastSSEMemCpy<std::array<float, N>
 		// Use OpenMP for data sets larger than 1 << 24.
 		omp_set_num_threads(4);
 #pragma omp parallel for if(src.size() >= (1 << 24))
-		for (std::size_t i{ 0 }; i != src.size(); i += 32) {
+		for (std::size_t i{ 0 }; i != src.size() - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -785,7 +785,7 @@ template<const int N>  void  internal_system::FastSSEMemCpy<std::array<double, N
 #endif
 	if (src.size() <= g_utils::L1D_DP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 4) {
+		for (std::size_t i{ 0 }; i != src.size() - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -798,7 +798,7 @@ template<const int N>  void  internal_system::FastSSEMemCpy<std::array<double, N
 	}
 	else {
 		//Prefetch to L2D
-		for (std::size_t i{ 0 }; i != src.size(); i += 4) {
+		for (std::size_t i{ 0 }; i != src.size() - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -825,7 +825,7 @@ template<const int N>  void  internal_system::FastSSEMemCpy<std::array<double, N
 #endif
 	if (src.size() <= g_utils::L1D_DP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -840,7 +840,7 @@ template<const int N>  void  internal_system::FastSSEMemCpy<std::array<double, N
 	}
 	else {
 		// Prefetch to L2D.
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -869,7 +869,7 @@ template<const int N> void  internal_system::FastSSEMemCpy<std::array<double, N>
 #endif
 	if (src.size() <= g_utils::L1D_DP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -888,7 +888,7 @@ template<const int N> void  internal_system::FastSSEMemCpy<std::array<double, N>
 	}
 	else {
 		// Prefetch to L2D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -921,7 +921,7 @@ auto    internal_system::FastSSEMemCpy<std::vector<float>, 0>::sse_mem_cpy_vecf3
 #endif
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
 		//Prefetch to L1D
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -934,7 +934,7 @@ auto    internal_system::FastSSEMemCpy<std::vector<float>, 0>::sse_mem_cpy_vecf3
 	}
 	else {
 		// Prefetch L2D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -961,7 +961,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<float>, 0>::sse_mem_cpy_vecf
 #endif
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -976,7 +976,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<float>, 0>::sse_mem_cpy_vecf
 	}
 	else {
 		// Prefetch to L2D
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1005,7 +1005,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<float>, 0>::sse_mem_cpy_vecf
 #endif
 	if (src.size() <= g_utils::L1D_SP_ELEMS) {
 		//Prefetch to L1D only
-		for (std::size_t i{ 0 }; i != src.size(); i += 32) {
+		for (std::size_t i{ 0 }; i != src.size() - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1024,7 +1024,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<float>, 0>::sse_mem_cpy_vecf
 	}
 	else {
 		// Prefetch to L2D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 32) {
+		for (std::size_t i{ 0 }; i != src.size() - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1056,7 +1056,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<double>, 0>::sse_mem_cpy_vec
 #endif
 	if (src.size() <= g_utils::L1D_DP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 4) {
+		for (std::size_t i{ 0 }; i != src.size() - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1068,7 +1068,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<double>, 0>::sse_mem_cpy_vec
 	}
 	else {
 		// Prefetch to L2D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 4) {
+		for (std::size_t i{ 0 }; i != src.size() - 4; i += 4) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1094,7 +1094,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<double>, 0>::sse_mem_cpy_vec
 #endif
 	if (src.size() <= g_utils::L1D_DP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1108,7 +1108,7 @@ auto     internal_system::FastSSEMemCpy<std::vector<double>, 0>::sse_mem_cpy_vec
 	}
 	else {
 		// Prefetch to L2D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 8) {
+		for (std::size_t i{ 0 }; i != src.size() - 8; i += 8) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1136,7 +1136,7 @@ auto      internal_system::FastSSEMemCpy<std::vector<double>, 0>::sse_mem_cpy_ve
 #endif
 	if (src.size() <= g_utils::L1D_DP_ELEMS) {
 		// Prefetch to L1D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -1154,7 +1154,7 @@ auto      internal_system::FastSSEMemCpy<std::vector<double>, 0>::sse_mem_cpy_ve
 	}
 	else {
 		// Prefetch to L2D only.
-		for (std::size_t i{ 0 }; i != src.size(); i += 16) {
+		for (std::size_t i{ 0 }; i != src.size() - 16; i += 16) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
