@@ -25,7 +25,7 @@ internal_system::FastAVXMemCpy<T, N>::avx_mem_cpy2x(_In_ const T* __restrict src
 	if ((src == nullptr) || (dst == nullptr) || (Len <= 0))
 		throw std::runtime_error(std::string("Invalid input in:") + typeid(FastAVXMemCpy<T, N>).name() + std::string("::avx_mem_cpy_2x\n"));
 #endif
-	for (int i{ 0 }; i != Len; i += 2) {
+	for (int i{ 0 }; i != Len - 2; i += 2) {
 
 		dst[i] = src[i];
 		dst[i + 1] = src[i + 1];
@@ -40,7 +40,7 @@ internal_system::FastAVXMemCpy<T, N>::avx_mem_cpy4x(_In_ const T* __restrict src
 	if((src == nullptr) || (dst == nullptr) || (Len <= 0))
 		throw std::runtime_error(std::string("Invalid input in: ") + typeid(FastAVXMemCpy<T, N>).name() + std::string("::avx_mem_cpy_4x\n"));
 #endif
-	for (int i{ 0 }; i != Len; i += 4) {
+	for (int i{ 0 }; i != Len - 4; i += 4) {
 
 		dst[i] = src[i];
 		dst[i + 1] = src[i + 1];
@@ -57,7 +57,7 @@ internal_system::FastAVXMemCpy<T, N>::avx_mem_cpy8x(_In_ const T* __restrict src
 	if((src == nullptr) || (dst == nullptr) || (Len <= 0))
 		throw std::runtime_error(std::string("Invalid input in: ") + typeid(FastAVXMemCpy<T, N>).name() + std::string("::avx_mem_cpy_8x\n"));
 #endif
-	for (int i{ 0 }; != Len; i += 8) {
+	for (int i{ 0 }; != Len - 8; i += 8) {
 
 		dst[i] = src[i];
 		dst[i + 1] = src[i + 1];
@@ -102,7 +102,7 @@ auto  internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f32(_In_ const float
 #endif
 	if (Len <= g_utils::L1D_SP_ELEMS) {
 		// Prefetch to L1D only
-		for (int i{ 0 }; i != Len; i += 8) {
+		for (int i{ 0 }; i != Len - 8; i += 8) {
 			/* Probably compiler will vectorise
 			this code because there is no Flow
 			dependency*/
@@ -111,12 +111,12 @@ auto  internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f32(_In_ const float
 		}
 	}
 	else {
-		/* Prefetch to L2 and L3*/
-		for (int i{ 0 }; i != Len; i += 8) {
+		/* Prefetch to L2 */
+		for (int i{ 0 }; i != Len - 8; i += 8) {
 			/* Probably compiler will vectorise
 			this code because there is no Flow
 			dependency*/
-			_mm_prefetch(reinterpret_cast<const char*>(&src[i + 2]), _MM_HINT_T1 | _MM_HINT_T2);
+			_mm_prefetch(reinterpret_cast<const char*>(&src[i + 2]), _MM_HINT_T1);
 			_mm256_storeu_ps(&dst[i], _mm256_loadu_ps(&src[i]));
 		}
 	}
@@ -135,7 +135,7 @@ auto  internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f324x(_In_ const flo
 #endif
 	if (Len <= g_utils::L1D_SP_ELEMS) {
 		/* Prefetch to L1D only */
-		for (int i{ 0 }; i != Len; i += 32) {
+		for (int i{ 0 }; i != Len - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -150,7 +150,7 @@ auto  internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f324x(_In_ const flo
 	}
 	else {
 		/* Prefetch to L2 and L3*/
-		for (int i{ 0 }; i != Len; i += 32) {
+		for (int i{ 0 }; i != Len - 32; i += 32) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -177,7 +177,7 @@ auto   internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f328x(_In_ const fl
 #endif
 	if (Len <= g_utils::L1D_SP_ELEMS) {
 		/* Prefetch to L1D only */
-		for (int i{ 0 }; i != Len; i += 64) {
+		for (int i{ 0 }; i != Len - 64; i += 64) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
@@ -194,13 +194,13 @@ auto   internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f328x(_In_ const fl
 		}
 	}
 	else {
-		/* Prefetch to L2 and L3 */
-		for (int i{ 0 }; i != Len; i += 64) {
+		/* Prefetch to L2 */
+		for (int i{ 0 }; i != Len - 64; i += 64) {
 			/*  Bear in mind that ICC probably will not vectorise
 			*  further this loop mainly because of flow dependence
 			*   [i], [i + n] on the next iteration.
 			*/
-			_mm_prefetch(reinterpret_cast<const char*>(&src[i]), _MM_HINT_T1 | _MM_HINT_T2);
+			_mm_prefetch(reinterpret_cast<const char*>(&src[i]), _MM_HINT_T1);
 			_mm256_storeu_ps(&dst[i], _mm256_loadu_ps(&src[i]));
 			_mm256_storeu_ps(&dst[i + 8], _mm256_loadu_ps(&src[i + 8]));
 			_mm256_storeu_ps(&dst[i + 16], _mm256_loadu_ps(&src[i + 16]));
@@ -227,7 +227,7 @@ auto   internal_system::FastAVXMemCpy<float, 0>::avx_mem_cpy_f32_omp(_In_ const 
 #endif
 	::omp_set_num_threads(nThreads);
 #pragma omp parallel for
-	for (int i = 0; i < Len; i += 8)
+	for (int i = 0; i < Len - 8; i += 8)
 		_mm256_storeu_ps(&dst[i], _mm256_loadu_ps(&src[i]));
 }
 #endif
@@ -246,7 +246,7 @@ auto  internal_system::FastAVXMemCpy<double, 0>::avx_mem_cpy_f64(_In_ const doub
 #endif
 	if (Len <= g_utils::L1D_DP_ELEMS) {
 		/* Prefetch to L1D only */
-		for (int i{ 0 }; i != Len; i += 4) {
+		for (int i{ 0 }; i != Len - 4; i += 4) {
 			/* Probably compiler will vectorise
 			this code because there is no Flow
 			dependency*/
@@ -255,8 +255,8 @@ auto  internal_system::FastAVXMemCpy<double, 0>::avx_mem_cpy_f64(_In_ const doub
 		}
 	}
 	else {
-		/* Prefetch to L2 and L3 */
-		for (int i{ 0 }; i != Len; i += 4) {
+		/* Prefetch to L2  */
+		for (int i{ 0 }; i != Len - 4; i += 4) {
 			/* Probably compiler will vectorise
 			this code because there is no Flow
 			dependency*/
