@@ -1,6 +1,10 @@
 
-template<typename T> std::enable_if<ad::is_single_precision<T>::value || ad::is_double_precision<T>::value,T>::type
-atmosphere::CCOR<T>::operator()(_In_ const T alt, _In_ const T r, _In_ const T h1, _In_ const T zh){
+template<typename T> 
+     std::enable_if<ad::is_single_precision<T>::value || 
+                         ad::is_double_precision<T>::value,T>::type
+                                         atmosphere::CCOR<T>::operator()
+                                                   (_In_ const T alt, _In_ const T r, 
+                                                             _In_ const T h1, _In_ const T zh){
 	/*        CHEMISTRY/DISSOCIATION CORRECTION FOR MSIS MODELS
 	*         ALT - altitude
 	*         R - target ratio
@@ -18,8 +22,12 @@ atmosphere::CCOR<T>::operator()(_In_ const T alt, _In_ const T r, _In_ const T h
 	return (exp(x));
 }
 
-template<typename T> std::enable_if<ad::is_single_precision<T>::value || ad::is_double_precision<T>::value,T>::type
-atmosphere::CCOR2<T>::operator()(_In_ const T alt, _In_ const T r, _In_ const T h1, _In_ const T zh, _In_ const T h2) {
+template<typename T> 
+         std::enable_if<ad::is_single_precision<T>::value ||
+                           ad::is_double_precision<T>::value,T>::type
+                                            atmosphere::CCOR2<T>::operator()
+                                            (_In_ const T alt, _In_ const T r, 
+                                                      _In_ const T h1, _In_ const T zh, _In_ const T h2) {
 	/*        CHEMISTRY/DISSOCIATION CORRECTION FOR MSIS MODELS
 	*         ALT - altitude
 	*         R - target ratio
